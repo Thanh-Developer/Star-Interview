@@ -39,7 +39,7 @@
 - [x] Logic test
 
 **Device Test**
-Google Pixel 3XL - Android 12
+- Google Pixel 3XL - Android 12
 
 **Note**
 - Swipe right to left for open detail
@@ -47,4 +47,7 @@ Google Pixel 3XL - Android 12
 so if you call too many times, you will get a 403 error, blocked from accessing the web address.
 - Get Free API from: https://any-api.com/github_com/github_com/docs/API_Description
 
-**Output**
+**Demo App**
+https://user-images.githubusercontent.com/89647236/162769924-021c4412-ec51-4e73-a9b0-81ab0f19b0f9.mp4
+![home](https://user-images.githubusercontent.com/89647236/162770542-6f08baa3-d553-4aed-9690-ef4c2b1c4f2f.png)
+![user](https://user-images.githubusercontent.com/89647236/162770578-348b3ca5-5784-4194-a223-c448d663e105.png)
