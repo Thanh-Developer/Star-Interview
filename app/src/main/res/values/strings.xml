@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">github_user</string>
+    <string name="title_repository">Repository</string>
+    <string name="title_followers">Followers</string>
+    <string name="title_following">Following</string>
+    <string name="title_dialog">Loading...</string>
+    <string name="message_dialog">Please wait...</string>
+    <string name="btn_ok">OK</string>
+    <string name="hint_search">Search user</string>
+
+</resources>

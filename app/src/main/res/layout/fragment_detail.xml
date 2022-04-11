@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.interview.star.ui.detail.DetailViewModel" />
+
+        <variable
+            name="profile"
+            type="com.interview.star.data.remote.model.Profile" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_layout">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:onClick="@{() -> viewModel.onBackPressClick()}"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgShare"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:src="@drawable/ic_share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgAvatar"
+            loadImage="@{profile.avatar_url}"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_150"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="@dimen/dp_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBack" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@{profile.name}"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgAvatar"
+            tools:text="Thanh" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtUserRepo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@{profile.url}"
+            android:textColor="@color/text_search"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsername"
+            tools:text="https://api.github.com/users/mojombo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRepo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@{Integer.toString(profile.public_repos)}"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtFollower"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUserRepo"
+            tools:text="100" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtFollower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(profile.followers)}"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/txtRepo"
+            app:layout_constraintEnd_toStartOf="@+id/txtFollowing"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtRepo"
+            app:layout_constraintTop_toTopOf="@+id/txtRepo"
+            tools:text="100" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(profile.following)}"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/txtFollower"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtFollower"
+            app:layout_constraintTop_toTopOf="@+id/txtFollower"
+            tools:text="100" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitleRepo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_repository"
+            android:textColor="@color/text_search"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txtRepo"
+            app:layout_constraintStart_toStartOf="@+id/txtRepo"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepo"
+            tools:text="Repository" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitleFollower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_followers"
+            android:textColor="@color/text_search"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txtFollower"
+            app:layout_constraintStart_toStartOf="@+id/txtFollower"
+            app:layout_constraintTop_toBottomOf="@+id/txtFollower"
+            tools:text="Followers" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitleFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_following"
+            android:textColor="@color/text_search"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txtFollowing"
+            app:layout_constraintStart_toStartOf="@+id/txtFollowing"
+            app:layout_constraintTop_toBottomOf="@+id/txtFollowing"
+            tools:text="Following" />
+
+        <WebView
+            android:id="@+id/webViewProfile"
+            loadWebView="@{profile.html_url}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleFollower" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
